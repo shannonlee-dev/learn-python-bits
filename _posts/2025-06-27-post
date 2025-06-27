@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+# 첫 번째 개발 기록
+
+첫 번째 개발 블로그 글을 작성했다.
+
+이곳에는 AI 개발자가 되기 위해 배우고, 깨달은 모든 것을 기록할 예정이다.
+
+2진수를 생성하는 파이썬 스크립트였다.
+
+```python
+import sys
+
+def generate_binary_numbers(n):
+    """Generates and prints n-bit binary numbers."""
+    for i in range(2**n):
+        print(bin(i)[2:].zfill(n))
+
+if __name__ == "__main__":
+    # Check if an argument is provided
+    if len(sys.argv) != 2:
+        print("Usage: python main.py <number_of_bits>")
+        print("Example: python main.py 5")
+        sys.exit(1)
+
+    try:
+        # Try to convert the argument to an integer
+        num_bits = int(sys.argv[1])
+        
+        # Check if the number is a non-negative integer
+        if num_bits < 0:
+            raise ValueError("Number of bits cannot be negative.")
+            
+        generate_binary_numbers(num_bits)
+
+    except ValueError as e:
+        # Handle cases where the input is not a valid integer or is negative
+        print(f"Error: Invalid input. Please provide a non-negative integer.")
+        print(f"Details: {e}")
+        sys.exit(1)
+
+이 과정을 통해 나는 '하드코딩'과 '일반화'의 개념에 대해 배울 수 있었다.
